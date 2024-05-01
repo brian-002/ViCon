@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image';
 import MobileNav from './MobileNav';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 function Navbar() {
   return (
@@ -18,8 +19,9 @@ function Navbar() {
         <h1 className='text-3xl font-bold text-white max-sm:hidden'>ViCo</h1>
       </Link>
       <div className='flex-between gap-5'>
-        {/*cleark user management*/}
-
+        <SignedIn>
+          <UserButton/>
+        </SignedIn>
         <MobileNav/>
       </div>
     </nav>
